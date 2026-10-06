@@ -1,0 +1,15 @@
+{
+  "name": "voapps-postman-collection-builder",
+  "private": true,
+  "description": "Builds the VoApps API Postman collection and environment from the API Access Guide in kb-content.js",
+  "scripts": {
+    "build": "node build.cjs",
+    "validate": "node validate.cjs",
+    "test:sandbox": "node harness.cjs",
+    "test:newman": "node newman/run_newman.cjs",
+    "check": "npm run build && npm run validate && npm run test:sandbox && npm run test:newman"
+  },
+  "devDependencies": {
+    "newman": "^6.2.2"
+  }
+}

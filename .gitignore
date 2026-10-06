@@ -1,0 +1,13 @@
+# This folder is the VoApps Knowledge Base project. Only the Postman collection assets are published.
+# Everything is ignored by default; the lines starting with "!" are the only things that can be committed.
+/*
+!/.gitignore
+!/README.md
+!/VoApps_API_Collection_REVAMPED.postman_collection.json
+!/VoApps_API.postman_environment.json
+!/postman-collection-builder/
+
+# inside the builder
+node_modules/
+postman-collection-builder/newman/fixtures/
+.DS_Store
