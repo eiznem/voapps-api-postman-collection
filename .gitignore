@@ -10,4 +10,5 @@
 # inside the builder
 node_modules/
 postman-collection-builder/newman/fixtures/
+postman-collection-builder/.postman-token
 .DS_Store

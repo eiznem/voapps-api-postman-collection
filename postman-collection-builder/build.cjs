@@ -78,13 +78,18 @@ const COMPUTED = [
 ];
 
 // ------------------------------------------------------------------ small helpers
-const STATUS_TEXT = { 200: 'OK', 201: 'Created', 401: 'Unauthorized', 403: 'Forbidden', 404: 'Not Found', 422: 'Unprocessable Entity' };
+const STATUS_TEXT = { 200: 'OK', 201: 'Created', 400: 'Bad Request', 401: 'Unauthorized', 403: 'Forbidden', 404: 'Not Found' };
 const clone = o => JSON.parse(JSON.stringify(o));
 const join = (...a) => a.filter(Boolean).join('\n');
 const exec = text => text.split('\n');
 const ev = (listen, text) => ({ listen, script: { type: 'text/javascript', exec: exec(text) } });
 const ILL = '[Illustrative] ';
-const ERR_BODY = { error: 'Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman\'s "Save as example".' };
+// Error response bodies per the KB "Errors & Status Codes" page: 400 is {"error":"<message>"},
+// 403 {"error":"not_authorized"}, 404 {"error":"not-found"}; 401 has an empty body.
+const errBody = (code, msg) => code === 403 ? { error: 'not_authorized' }
+  : code === 404 ? { error: 'not-found' }
+  : code === 401 ? { error: 'missing or invalid API key' }
+  : { error: msg || 'validation failed' };
 
 const guideEx = slug => L.exampleResponse(slug);
 const pm = (map, key) => (map[key] ? map[key].text : '');
@@ -139,7 +144,7 @@ const text = (key, value, description, disabled) => { const f = { key, value, ty
 const q = (key, value, description, disabled) => { const f = { key, value }; if (description) f.description = description; if (disabled) f.disabled = true; return f; };
 
 const ok200 = (name, body) => ({ name, code: 200, body });
-const bad = (name, code) => ({ name: ILL + name, code, body: ERR_BODY });
+const bad = (name, code, msg) => ({ name: ILL + name, code, body: errBody(code, msg) });
 const unauthorized = () => bad('401 – missing or invalid API key', 401);
 const notFound = what => bad('404 – ' + what + ' not found', 404);
 
@@ -226,7 +231,7 @@ const POST_CREATE_ACCOUNT = req({
     "    pm.test('Timezone is one of the supported timezone strings', () => pm.expect(TIMEZONES).to.include(a.timezone));",
     "    save('account_id', a.id);", '}'),
   examples: [ok200('200 – account created (guide example)', guideEx('create-an-account')),
-    bad('4xx – validation error, e.g. duplicate name or unsupported timezone', 422), bad('4xx – name or timezone missing', 422), unauthorized()],
+    bad('400 – validation error (e.g. duplicate name or unsupported timezone)', 400, 'Name must be unique for this user'), bad('400 – name missing', 400, "Name can't be blank"), unauthorized()],
 });
 
 // ================================================================== MESSAGES
@@ -272,7 +277,7 @@ const FORM_POST_CREATE_MESSAGE = req({
     "    pm.test('Name echoes the name that was sent', () => pm.expect(body.message.name).to.eql(pm.variables.get('new_message_name')));",
     "    pm.test('Description echoes the description that was sent', () => pm.expect(body.message.description).to.eql(pm.variables.get('new_message_description')));",
     "    save('message_id', body.message.id);", '}'),
-  examples: [ok200('200 – message created (guide example)', guideEx('create-a-message')), bad('4xx – name or message_file missing', 422), bad('4xx – file is not a WAV or MP3', 422), unauthorized()],
+  examples: [ok200('200 – message created (guide example)', guideEx('create-a-message')), bad('400 – name or message_file missing', 400, "Name can't be blank"), bad('400 – file is not a supported audio type', 400, 'Message file must be a valid audio file'), unauthorized()],
 });
 const GET_MESSAGE_INFO = req({
   name: 'GET | Message Information', method: 'GET', path: ['accounts', '{{account_id}}', 'messages', '{{message_id}}'], slug: 'message-information',
@@ -325,7 +330,7 @@ const POST_CREATE_CALLER = req({
   test: join(S.HEAD_2XX, S.HELPERS, S.SAVE, 'if (ok) {', "    pm.test('\"caller_number\" is an object', () => pm.expect(body.caller_number).to.be.an('object'));", '    const items = [body.caller_number];', callerBlock,
     "    pm.test('Name echoes the name that was sent', () => pm.expect(body.caller_number.name).to.eql(pm.variables.get('new_caller_number_name')));",
     "    save('caller_number_id', body.caller_number.id);", "    if (isBlank('voapps_caller_number')) { save('voapps_caller_number', body.caller_number.number); }", '}'),
-  examples: [ok200('200 – caller number created (guide example)', guideEx('create-a-caller-number')), bad('4xx – verified_by_user is not true', 422), bad('4xx – number missing or invalid', 422), unauthorized()],
+  examples: [ok200('200 – caller number created (guide example)', guideEx('create-a-caller-number')), bad('400 – verified_by_user terms not accepted', 400, 'Verified by user Terms must be accepted'), bad('400 – number missing or invalid', 400, 'Number must be a valid US number'), unauthorized()],
 });
 const GET_CALLER_INFO = req({
   name: 'GET | Caller Number Information', method: 'GET', path: ['accounts', '{{account_id}}', 'caller_numbers', '{{caller_number_id}}'], slug: 'caller-number-information',
@@ -367,7 +372,7 @@ const campaignListReq = (name, which, summary, examples, extraTest, saveIds) => 
 });
 const GET_LIST_CAMPAIGNS_SINGLE = campaignListReq('GET | List Campaigns (Single Date)', { single: '{{today_utc}}' },
   'Lists campaigns for one date (`created_date`, YYYY-MM-DD UTC). Use `created_date` **or** the start/end pair, not both.',
-  [ok200('200 – one running campaign (guide example)', campaignsEx), ok200('200 – campaigns in several statuses', { campaigns: ['running', 'paused', 'completed', 'canceled'].map((s, i) => Object.assign(campaignSample(s), { id: i + 1 })) }), ok200('200 – no campaigns on this date', { campaigns: [] }), bad('4xx – no date filter supplied', 422), notFound('account'), unauthorized()], '', true);
+  [ok200('200 – one running campaign (guide example)', campaignsEx), ok200('200 – campaigns in several statuses', { campaigns: ['running', 'paused', 'completed', 'canceled'].map((s, i) => Object.assign(campaignSample(s), { id: i + 1 })) }), ok200('200 – no campaigns on this date', { campaigns: [] }), bad('400 – no date filter supplied', 400, 'created_date is required'), notFound('account'), unauthorized()], '', true);
 const GET_LIST_CAMPAIGNS_RANGE = campaignListReq('GET | List Campaigns (Date Range)', { noDate: true },
   'Lists campaigns between `created_date_start` and `created_date_end` (YYYY-MM-DD UTC), newest first. Defaults to the last 7 days.',
   [ok200('200 – campaigns in range (guide example)', campaignsEx), ok200('200 – no campaigns in range', { campaigns: [] })], '', true);
@@ -404,7 +409,7 @@ const campaignForm = o => {
   f.push(text('pace', '{{campaign_pace}}', pm(crp, 'pace')));
   return f;
 };
-const campaignCreateExamples = [ok200('200 – campaign created (guide example)', guideEx('create-a-campaign')), bad('4xx – name already used in this account', 422), bad('4xx – message_id not owned by this account', 422), bad('4xx – caller_number missing or invalid', 422), bad('4xx – campaign_import missing (non-transactional campaign)', 422), notFound('account'), unauthorized()];
+const campaignCreateExamples = [ok200('200 – campaign created (guide example)', guideEx('create-a-campaign')), bad('400 – name already used in this account', 400, 'Name must be unique for this account'), bad('400 – message_id not owned by this account', 400, 'Message must be a valid message for this account'), bad('400 – caller_number missing or invalid', 400, 'Caller number must be a valid caller number for this account'), bad('400 – campaign_import missing (non-transactional campaign)', 400, 'Campaign import file must include a number field, either number or phone_number'), notFound('account'), unauthorized()];
 const campaignCreateNotes = ['Safe by default: **confirm** is `{{confirm_campaign}}` (`false`), which the guide describes as "test campaign creation without delivery".', 'Name is `postman-test-campaign-<timestamp>`, because campaign names must be unique per account.', 'Saves **campaign_id**.', 'Tests: 2xx, JSON, `campaign` has id/name/uri/target_date, name echoes what was sent, uri points into this account\'s campaigns.'];
 const campaignSee = [['Pacing Calculator', 'user/creating-a-campaign-pace-setting'], ['The 10:00Z Start Rule', 'integration/the-10-00z-start-rule'], ['CSV File Format Requirements', 'user/csv-file-format-requirements']];
 const mkCreateCampaign = (name, summary, o, targetDesc) => req({
@@ -451,14 +456,14 @@ const updateReq = (name, summary, fields, expectedStatus, label, pre, examples) 
 });
 const camp = (status, pace) => ({ campaign: Object.assign({}, guideEx('update-a-campaign').campaign, { status, pace: pace || 50 }) });
 const PUT_PAUSE = updateReq('PUT | Update a Campaign (Pause)', 'Pauses a campaign (`method=pause`). A campaign must be paused before it can be canceled.', [text('method', 'pause', pm(ucp, 'method'))], 'paused', 'a pause', null,
-  [ok200('200 – paused', camp('paused')), notFound('campaign'), bad('4xx – campaign cannot be paused in its current state', 422), unauthorized()]);
+  [ok200('200 – paused', camp('paused')), notFound('campaign'), bad('400 – campaign cannot be paused in its current state', 400, 'Campaign cannot be paused in its current state'), unauthorized()]);
 const PUT_UNPAUSE = updateReq('PUT | Update a Campaign (Unpause)', 'Resumes a paused campaign (`method=unpause`).', [text('method', 'unpause', pm(ucp, 'method'))], 'running', 'an unpause', null,
-  [ok200('200 – unpaused', camp('running')), bad('4xx – campaign is not paused', 422), notFound('campaign'), unauthorized()]);
+  [ok200('200 – unpaused', camp('running')), bad('400 – campaign is not paused', 400, 'Campaign is not paused'), notFound('campaign'), unauthorized()]);
 const PUT_PACE = updateReq('PUT | Update a Campaign (Change Pace)', 'Changes the pace (`pace`, successful deliveries per hour, 50 to 8000). The value comes from **campaign_new_pace**.', [text('pace', '{{campaign_new_pace}}', pm(ucp, 'pace'))], null, 'a pace change', null,
-  [ok200('200 – pace changed', camp('running', 100)), bad('4xx – pace is not a number', 422), notFound('campaign'), unauthorized()]);
+  [ok200('200 – pace changed', camp('running', 100)), bad('400 – pace is not a number', 400, 'Pace is not a number'), notFound('campaign'), unauthorized()]);
 const CANCEL_GUARD = S.PREREQ_REQUIRE('confirm_cancel', 'Canceling a campaign is final (the guide documents no way to undo it). Set the confirm_cancel variable to true, then send this request again.');
 const PUT_CANCEL = updateReq('PUT | Update a Campaign (Cancel)', '**Cancels a campaign. The guide documents no way to undo this**, so the request is blocked until you set the `confirm_cancel` variable to `true`. The campaign must be paused first.', [text('method', 'cancel', pm(ucp, 'method'))], 'canceled', 'a cancel', CANCEL_GUARD,
-  [ok200('200 – canceled', camp('canceled')), bad('4xx – campaign must be paused before it can be canceled', 422), notFound('campaign'), unauthorized()]);
+  [ok200('200 – canceled', camp('canceled')), bad('400 – campaign must be paused before it can be canceled', 400, 'Campaign must be paused before it can be canceled'), notFound('campaign'), unauthorized()]);
 
 // ================================================================== TRANSACTIONAL RECORDS
 const rcp = L.paramMap('create-a-record', 1);
@@ -469,7 +474,7 @@ const recordCreateTest = join(S.HEAD_2XX, S.HELPERS, S.SAVE, 'if (ok) {',
   "    pm.test('\"record\" is an object with an id', () => { pm.expect(body.record).to.be.an('object'); need(body.record, ['id'], 'record'); });",
   "    pm.test('record.id is a positive number', () => pm.expect(Number(body.record.id)).to.be.above(0));",
   "    save('record_id', body.record.id);", '}');
-const recordCreateExamples = [ok200('200 – record created (guide example)', guideEx('create-a-record')), bad('4xx – number or phone_number missing', 422), bad('4xx – campaign is not transactional or has completed', 422), notFound('campaign'), unauthorized()];
+const recordCreateExamples = [ok200('200 – record created (guide example)', guideEx('create-a-record')), bad('400 – number or phone_number missing', 400, "Number can't be blank"), bad('400 – campaign is no longer running', 400, 'Campaign is no longer running.'), notFound('campaign'), unauthorized()];
 const recordSee = [['Webhook (Postback URL)', 'api/webhook-postback-url'], ['The 10:00Z Start Rule', 'integration/the-10-00z-start-rule'], ['Results Timestamps', 'api/results-timestamps']];
 const mkRecord = (name, summary, fields, o) => req({
   name, method: 'POST', path: o && o.convenience ? ['accounts', '{{account_id}}', 'records'] : ['accounts', '{{account_id}}', 'campaigns', '{{campaign_id}}', 'records'], slug: 'create-a-record',
@@ -633,12 +638,12 @@ const E = [
   smoke(31, e('JSON POST | Create a Record (Missing Number)', { method: 'POST', path: ['accounts', '{{account_id}}', 'campaigns', '{{campaign_id}}', 'records'], slug: 'create-a-record', urlencoded: [text('record_attributes', '{"account": "12345"}')], summary: 'Sends `record_attributes` with no `number` or `phone_number`, which is required. Expect a 4xx.' }), { intro: '**Error check: expect a rejection.**' }),
 ];
 // Give the error requests saved examples too
-const errExamplesFor = it => [bad('4xx – rejected', 422)];
+const errExamplesFor = it => [bad('400 – rejected', 400)];
 E.forEach(it => {
   const orig = clone(it.request); delete orig.description; delete orig.auth;
   const is401 = /Invalid API Key|No Authorization/.test(it.name), is404 = /Unknown/.test(it.name);
-  const code = is401 ? 401 : is404 ? 404 : 422;
-  it.response = [{ name: ILL + code + ' – rejected as expected', originalRequest: orig, status: STATUS_TEXT[code], code, _postman_previewlanguage: 'json', header: [{ key: 'Content-Type', value: 'application/json; charset=utf-8' }], cookie: [], body: JSON.stringify(ERR_BODY, null, 2) }];
+  const code = is401 ? 401 : is404 ? 404 : 400;
+  it.response = [{ name: ILL + code + ' – rejected as expected', originalRequest: orig, status: STATUS_TEXT[code], code, _postman_previewlanguage: 'json', header: [{ key: 'Content-Type', value: 'application/json; charset=utf-8' }], cookie: [], body: JSON.stringify(errBody(code), null, 2) }];
 });
 
 const folder = (name, description, items, extra) => Object.assign({ name, description, item: items }, extra || {});

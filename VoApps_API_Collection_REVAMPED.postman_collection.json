@@ -1386,7 +1386,7 @@
                     }
                   ],
                   "cookie": [],
-                  "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+                  "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
                 }
               ],
               "event": [
@@ -1465,7 +1465,7 @@
                     }
                   ],
                   "cookie": [],
-                  "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+                  "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
                 }
               ],
               "event": [
@@ -1547,7 +1547,7 @@
                     }
                   ],
                   "cookie": [],
-                  "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+                  "body": "{\n  \"error\": \"not-found\"\n}"
                 }
               ],
               "event": [
@@ -1629,7 +1629,7 @@
                     }
                   ],
                   "cookie": [],
-                  "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+                  "body": "{\n  \"error\": \"not-found\"\n}"
                 }
               ],
               "event": [
@@ -1711,7 +1711,7 @@
                     }
                   ],
                   "cookie": [],
-                  "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+                  "body": "{\n  \"error\": \"not-found\"\n}"
                 }
               ],
               "event": [
@@ -1797,7 +1797,7 @@
                     }
                   ],
                   "cookie": [],
-                  "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+                  "body": "{\n  \"error\": \"not-found\"\n}"
                 }
               ],
               "event": [
@@ -1851,7 +1851,7 @@
               },
               "response": [
                 {
-                  "name": "[Illustrative] 422 – rejected as expected",
+                  "name": "[Illustrative] 400 – rejected as expected",
                   "originalRequest": {
                     "method": "GET",
                     "header": [],
@@ -1867,8 +1867,8 @@
                       ]
                     }
                   },
-                  "status": "Unprocessable Entity",
-                  "code": 422,
+                  "status": "Bad Request",
+                  "code": 400,
                   "_postman_previewlanguage": "json",
                   "header": [
                     {
@@ -1877,7 +1877,7 @@
                     }
                   ],
                   "cookie": [],
-                  "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+                  "body": "{\n  \"error\": \"validation failed\"\n}"
                 }
               ],
               "event": [
@@ -1932,7 +1932,7 @@
               },
               "response": [
                 {
-                  "name": "[Illustrative] 422 – rejected as expected",
+                  "name": "[Illustrative] 400 – rejected as expected",
                   "originalRequest": {
                     "method": "POST",
                     "header": [],
@@ -1950,8 +1950,8 @@
                       "formdata": []
                     }
                   },
-                  "status": "Unprocessable Entity",
-                  "code": 422,
+                  "status": "Bad Request",
+                  "code": 400,
                   "_postman_previewlanguage": "json",
                   "header": [
                     {
@@ -1960,7 +1960,7 @@
                     }
                   ],
                   "cookie": [],
-                  "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+                  "body": "{\n  \"error\": \"validation failed\"\n}"
                 }
               ],
               "event": [
@@ -2023,7 +2023,7 @@
               },
               "response": [
                 {
-                  "name": "[Illustrative] 422 – rejected as expected",
+                  "name": "[Illustrative] 400 – rejected as expected",
                   "originalRequest": {
                     "method": "POST",
                     "header": [],
@@ -2049,8 +2049,8 @@
                       ]
                     }
                   },
-                  "status": "Unprocessable Entity",
-                  "code": 422,
+                  "status": "Bad Request",
+                  "code": 400,
                   "_postman_previewlanguage": "json",
                   "header": [
                     {
@@ -2059,7 +2059,7 @@
                     }
                   ],
                   "cookie": [],
-                  "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+                  "body": "{\n  \"error\": \"validation failed\"\n}"
                 }
               ],
               "event": [
@@ -2122,7 +2122,7 @@
               },
               "response": [
                 {
-                  "name": "[Illustrative] 422 – rejected as expected",
+                  "name": "[Illustrative] 400 – rejected as expected",
                   "originalRequest": {
                     "method": "POST",
                     "header": [],
@@ -2148,8 +2148,8 @@
                       ]
                     }
                   },
-                  "status": "Unprocessable Entity",
-                  "code": 422,
+                  "status": "Bad Request",
+                  "code": 400,
                   "_postman_previewlanguage": "json",
                   "header": [
                     {
@@ -2158,7 +2158,7 @@
                     }
                   ],
                   "cookie": [],
-                  "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+                  "body": "{\n  \"error\": \"validation failed\"\n}"
                 }
               ],
               "event": [
@@ -2226,7 +2226,7 @@
               },
               "response": [
                 {
-                  "name": "[Illustrative] 422 – rejected as expected",
+                  "name": "[Illustrative] 400 – rejected as expected",
                   "originalRequest": {
                     "method": "POST",
                     "header": [],
@@ -2257,8 +2257,8 @@
                       ]
                     }
                   },
-                  "status": "Unprocessable Entity",
-                  "code": 422,
+                  "status": "Bad Request",
+                  "code": 400,
                   "_postman_previewlanguage": "json",
                   "header": [
                     {
@@ -2267,7 +2267,7 @@
                     }
                   ],
                   "cookie": [],
-                  "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+                  "body": "{\n  \"error\": \"validation failed\"\n}"
                 }
               ],
               "event": [
@@ -2332,7 +2332,7 @@
               },
               "response": [
                 {
-                  "name": "[Illustrative] 422 – rejected as expected",
+                  "name": "[Illustrative] 400 – rejected as expected",
                   "originalRequest": {
                     "method": "POST",
                     "header": [],
@@ -2360,8 +2360,8 @@
                       ]
                     }
                   },
-                  "status": "Unprocessable Entity",
-                  "code": 422,
+                  "status": "Bad Request",
+                  "code": 400,
                   "_postman_previewlanguage": "json",
                   "header": [
                     {
@@ -2370,7 +2370,7 @@
                     }
                   ],
                   "cookie": [],
-                  "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+                  "body": "{\n  \"error\": \"validation failed\"\n}"
                 }
               ],
               "event": [
@@ -2574,7 +2574,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -2743,7 +2743,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -2860,7 +2860,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -2966,7 +2966,7 @@
               "body": "{\n  \"accounts\": [\n    {\n      \"id\": 123,\n      \"name\": \"a-really-great-account\",\n      \"timezone\": \"America/New_York\"\n    }\n  ]\n}"
             },
             {
-              "name": "[Illustrative] 4xx – validation error, e.g. duplicate name or unsupported timezone",
+              "name": "[Illustrative] 400 – validation error (e.g. duplicate name or unsupported timezone)",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -2997,8 +2997,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -3007,10 +3007,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Name must be unique for this user\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – name or timezone missing",
+              "name": "[Illustrative] 400 – name missing",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -3041,8 +3041,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -3051,7 +3051,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Name can't be blank\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -3095,7 +3095,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -3303,7 +3303,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -3340,7 +3340,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -3703,7 +3703,7 @@
               "body": "{\n  \"message\": {\n    \"id\": 123,\n    \"name\": \"my-message\",\n    \"description\": \"message-description\",\n    \"duration\": \"23.5\",\n    \"file_url\": \"https://voapps.s3.amazonaws.com/your/other_message/file.wav\"\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – name or message_file missing",
+              "name": "[Illustrative] 400 – name or message_file missing",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -3748,8 +3748,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -3758,10 +3758,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Name can't be blank\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – file is not a WAV or MP3",
+              "name": "[Illustrative] 400 – file is not a supported audio type",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -3806,8 +3806,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -3816,7 +3816,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Message file must be a valid audio file\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -3874,7 +3874,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -3995,7 +3995,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -4025,7 +4025,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -4196,7 +4196,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -4233,7 +4233,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -4586,7 +4586,7 @@
               "body": "{\n  \"caller_number\": {\n    \"id\": 123,\n    \"name\": \"my-caller-number\",\n    \"number\": \"+15555551212\"\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – verified_by_user is not true",
+              "name": "[Illustrative] 400 – verified_by_user terms not accepted",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -4625,8 +4625,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -4635,10 +4635,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Verified by user Terms must be accepted\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – number missing or invalid",
+              "name": "[Illustrative] 400 – number missing or invalid",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -4677,8 +4677,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -4687,7 +4687,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Number must be a valid US number\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -4739,7 +4739,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -4859,7 +4859,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -4889,7 +4889,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -5154,7 +5154,7 @@
               "body": "{\n  \"campaigns\": []\n}"
             },
             {
-              "name": "[Illustrative] 4xx – no date filter supplied",
+              "name": "[Illustrative] 400 – no date filter supplied",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -5201,8 +5201,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -5211,7 +5211,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"created_date is required\"\n}"
             },
             {
               "name": "[Illustrative] 404 – account not found",
@@ -5271,7 +5271,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -5331,7 +5331,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -6517,7 +6517,7 @@
               "body": "{\n  \"campaign\": {\n    \"id\": 1655018,\n    \"name\": \"Campaign 2026-10-06T15:16:39.074Z\",\n    \"uri\": \"https://directdropvoicemail.voapps.com/accounts/3530/campaigns/1655018\",\n    \"target_date\": \"2026-10-06T15:16:39.074Z\"\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – name already used in this account",
+              "name": "[Illustrative] 400 – name already used in this account",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -6588,8 +6588,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -6598,10 +6598,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Name must be unique for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – message_id not owned by this account",
+              "name": "[Illustrative] 400 – message_id not owned by this account",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -6672,8 +6672,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -6682,10 +6682,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Message must be a valid message for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – caller_number missing or invalid",
+              "name": "[Illustrative] 400 – caller_number missing or invalid",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -6756,8 +6756,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -6766,10 +6766,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Caller number must be a valid caller number for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign_import missing (non-transactional campaign)",
+              "name": "[Illustrative] 400 – campaign_import missing (non-transactional campaign)",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -6840,8 +6840,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -6850,7 +6850,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign import file must include a number field, either number or phone_number\"\n}"
             },
             {
               "name": "[Illustrative] 404 – account not found",
@@ -6934,7 +6934,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -7018,7 +7018,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -7201,7 +7201,7 @@
               "body": "{\n  \"campaign\": {\n    \"id\": 1655018,\n    \"name\": \"Campaign 2026-10-06T15:16:39.074Z\",\n    \"uri\": \"https://directdropvoicemail.voapps.com/accounts/3530/campaigns/1655018\",\n    \"target_date\": \"2026-10-06T15:16:39.074Z\"\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – name already used in this account",
+              "name": "[Illustrative] 400 – name already used in this account",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -7264,8 +7264,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -7274,10 +7274,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Name must be unique for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – message_id not owned by this account",
+              "name": "[Illustrative] 400 – message_id not owned by this account",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -7340,8 +7340,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -7350,10 +7350,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Message must be a valid message for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – caller_number missing or invalid",
+              "name": "[Illustrative] 400 – caller_number missing or invalid",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -7416,8 +7416,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -7426,10 +7426,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Caller number must be a valid caller number for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign_import missing (non-transactional campaign)",
+              "name": "[Illustrative] 400 – campaign_import missing (non-transactional campaign)",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -7492,8 +7492,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -7502,7 +7502,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign import file must include a number field, either number or phone_number\"\n}"
             },
             {
               "name": "[Illustrative] 404 – account not found",
@@ -7578,7 +7578,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -7654,7 +7654,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -7837,7 +7837,7 @@
               "body": "{\n  \"campaign\": {\n    \"id\": 1655018,\n    \"name\": \"Campaign 2026-10-06T15:16:39.074Z\",\n    \"uri\": \"https://directdropvoicemail.voapps.com/accounts/3530/campaigns/1655018\",\n    \"target_date\": \"2026-10-06T15:16:39.074Z\"\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – name already used in this account",
+              "name": "[Illustrative] 400 – name already used in this account",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -7900,8 +7900,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -7910,10 +7910,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Name must be unique for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – message_id not owned by this account",
+              "name": "[Illustrative] 400 – message_id not owned by this account",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -7976,8 +7976,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -7986,10 +7986,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Message must be a valid message for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – caller_number missing or invalid",
+              "name": "[Illustrative] 400 – caller_number missing or invalid",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -8052,8 +8052,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -8062,10 +8062,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Caller number must be a valid caller number for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign_import missing (non-transactional campaign)",
+              "name": "[Illustrative] 400 – campaign_import missing (non-transactional campaign)",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -8128,8 +8128,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -8138,7 +8138,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign import file must include a number field, either number or phone_number\"\n}"
             },
             {
               "name": "[Illustrative] 404 – account not found",
@@ -8214,7 +8214,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -8290,7 +8290,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -8473,7 +8473,7 @@
               "body": "{\n  \"campaign\": {\n    \"id\": 1655018,\n    \"name\": \"Campaign 2026-10-06T15:16:39.074Z\",\n    \"uri\": \"https://directdropvoicemail.voapps.com/accounts/3530/campaigns/1655018\",\n    \"target_date\": \"2026-10-06T15:16:39.074Z\"\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – name already used in this account",
+              "name": "[Illustrative] 400 – name already used in this account",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -8536,8 +8536,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -8546,10 +8546,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Name must be unique for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – message_id not owned by this account",
+              "name": "[Illustrative] 400 – message_id not owned by this account",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -8612,8 +8612,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -8622,10 +8622,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Message must be a valid message for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – caller_number missing or invalid",
+              "name": "[Illustrative] 400 – caller_number missing or invalid",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -8688,8 +8688,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -8698,10 +8698,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Caller number must be a valid caller number for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign_import missing (non-transactional campaign)",
+              "name": "[Illustrative] 400 – campaign_import missing (non-transactional campaign)",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -8764,8 +8764,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -8774,7 +8774,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign import file must include a number field, either number or phone_number\"\n}"
             },
             {
               "name": "[Illustrative] 404 – account not found",
@@ -8850,7 +8850,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -8926,7 +8926,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -9111,7 +9111,7 @@
               "body": "{\n  \"campaign\": {\n    \"id\": 1655018,\n    \"name\": \"Campaign 2026-10-06T15:16:39.074Z\",\n    \"uri\": \"https://directdropvoicemail.voapps.com/accounts/3530/campaigns/1655018\",\n    \"target_date\": \"2026-10-06T15:16:39.074Z\"\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – name already used in this account",
+              "name": "[Illustrative] 400 – name already used in this account",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -9175,8 +9175,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -9185,10 +9185,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Name must be unique for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – message_id not owned by this account",
+              "name": "[Illustrative] 400 – message_id not owned by this account",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -9252,8 +9252,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -9262,10 +9262,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Message must be a valid message for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – caller_number missing or invalid",
+              "name": "[Illustrative] 400 – caller_number missing or invalid",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -9329,8 +9329,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -9339,10 +9339,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Caller number must be a valid caller number for this account\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign_import missing (non-transactional campaign)",
+              "name": "[Illustrative] 400 – campaign_import missing (non-transactional campaign)",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -9406,8 +9406,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -9416,7 +9416,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign import file must include a number field, either number or phone_number\"\n}"
             },
             {
               "name": "[Illustrative] 404 – account not found",
@@ -9493,7 +9493,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -9570,7 +9570,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -9808,7 +9808,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -9838,7 +9838,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -9989,10 +9989,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign cannot be paused in its current state",
+              "name": "[Illustrative] 400 – campaign cannot be paused in its current state",
               "originalRequest": {
                 "method": "PUT",
                 "header": [],
@@ -10020,8 +10020,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -10030,7 +10030,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign cannot be paused in its current state\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -10071,7 +10071,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -10172,7 +10172,7 @@
               "body": "{\n  \"campaign\": {\n    \"id\": 1655018,\n    \"name\": \"Campaign 2026-10-06T15:16:39.074Z\",\n    \"pace\": 50,\n    \"progress\": 47,\n    \"status\": \"running\",\n    \"uri\": \"https://directdropvoicemail.voapps.com/accounts/3530/campaigns/1655018\",\n    \"target_date\": \"2026-10-06T15:16:39.074Z\",\n    \"export\": \"https://voapps-production.s3.amazonaws.com/.../campaign_export_1655018.csv\"\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign is not paused",
+              "name": "[Illustrative] 400 – campaign is not paused",
               "originalRequest": {
                 "method": "PUT",
                 "header": [],
@@ -10200,8 +10200,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -10210,7 +10210,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign is not paused\"\n}"
             },
             {
               "name": "[Illustrative] 404 – campaign not found",
@@ -10251,7 +10251,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -10292,7 +10292,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -10393,7 +10393,7 @@
               "body": "{\n  \"campaign\": {\n    \"id\": 1655018,\n    \"name\": \"Campaign 2026-10-06T15:16:39.074Z\",\n    \"pace\": 100,\n    \"progress\": 47,\n    \"status\": \"running\",\n    \"uri\": \"https://directdropvoicemail.voapps.com/accounts/3530/campaigns/1655018\",\n    \"target_date\": \"2026-10-06T15:16:39.074Z\",\n    \"export\": \"https://voapps-production.s3.amazonaws.com/.../campaign_export_1655018.csv\"\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – pace is not a number",
+              "name": "[Illustrative] 400 – pace is not a number",
               "originalRequest": {
                 "method": "PUT",
                 "header": [],
@@ -10421,8 +10421,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -10431,7 +10431,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Pace is not a number\"\n}"
             },
             {
               "name": "[Illustrative] 404 – campaign not found",
@@ -10472,7 +10472,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -10513,7 +10513,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -10614,7 +10614,7 @@
               "body": "{\n  \"campaign\": {\n    \"id\": 1655018,\n    \"name\": \"Campaign 2026-10-06T15:16:39.074Z\",\n    \"pace\": 50,\n    \"progress\": 47,\n    \"status\": \"canceled\",\n    \"uri\": \"https://directdropvoicemail.voapps.com/accounts/3530/campaigns/1655018\",\n    \"target_date\": \"2026-10-06T15:16:39.074Z\",\n    \"export\": \"https://voapps-production.s3.amazonaws.com/.../campaign_export_1655018.csv\"\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign must be paused before it can be canceled",
+              "name": "[Illustrative] 400 – campaign must be paused before it can be canceled",
               "originalRequest": {
                 "method": "PUT",
                 "header": [],
@@ -10642,8 +10642,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -10652,7 +10652,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign must be paused before it can be canceled\"\n}"
             },
             {
               "name": "[Illustrative] 404 – campaign not found",
@@ -10693,7 +10693,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -10734,7 +10734,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -10866,7 +10866,7 @@
               "body": "{\n  \"record\": {\n    \"id\": 123\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – number or phone_number missing",
+              "name": "[Illustrative] 400 – number or phone_number missing",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -10895,8 +10895,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -10905,10 +10905,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Number can't be blank\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign is not transactional or has completed",
+              "name": "[Illustrative] 400 – campaign is no longer running",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -10937,8 +10937,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -10947,7 +10947,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign is no longer running.\"\n}"
             },
             {
               "name": "[Illustrative] 404 – campaign not found",
@@ -10989,7 +10989,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -11031,7 +11031,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -11144,7 +11144,7 @@
               "body": "{\n  \"record\": {\n    \"id\": 123\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – number or phone_number missing",
+              "name": "[Illustrative] 400 – number or phone_number missing",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -11173,8 +11173,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -11183,10 +11183,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Number can't be blank\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign is not transactional or has completed",
+              "name": "[Illustrative] 400 – campaign is no longer running",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -11215,8 +11215,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -11225,7 +11225,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign is no longer running.\"\n}"
             },
             {
               "name": "[Illustrative] 404 – campaign not found",
@@ -11267,7 +11267,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -11309,7 +11309,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -11422,7 +11422,7 @@
               "body": "{\n  \"record\": {\n    \"id\": 123\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – number or phone_number missing",
+              "name": "[Illustrative] 400 – number or phone_number missing",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -11451,8 +11451,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -11461,10 +11461,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Number can't be blank\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign is not transactional or has completed",
+              "name": "[Illustrative] 400 – campaign is no longer running",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -11493,8 +11493,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -11503,7 +11503,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign is no longer running.\"\n}"
             },
             {
               "name": "[Illustrative] 404 – campaign not found",
@@ -11545,7 +11545,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -11587,7 +11587,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -11700,7 +11700,7 @@
               "body": "{\n  \"record\": {\n    \"id\": 123\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – number or phone_number missing",
+              "name": "[Illustrative] 400 – number or phone_number missing",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -11729,8 +11729,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -11739,10 +11739,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Number can't be blank\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign is not transactional or has completed",
+              "name": "[Illustrative] 400 – campaign is no longer running",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -11771,8 +11771,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -11781,7 +11781,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign is no longer running.\"\n}"
             },
             {
               "name": "[Illustrative] 404 – campaign not found",
@@ -11823,7 +11823,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -11865,7 +11865,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -11978,7 +11978,7 @@
               "body": "{\n  \"record\": {\n    \"id\": 123\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – number or phone_number missing",
+              "name": "[Illustrative] 400 – number or phone_number missing",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -12007,8 +12007,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -12017,10 +12017,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Number can't be blank\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign is not transactional or has completed",
+              "name": "[Illustrative] 400 – campaign is no longer running",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -12049,8 +12049,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -12059,7 +12059,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign is no longer running.\"\n}"
             },
             {
               "name": "[Illustrative] 404 – campaign not found",
@@ -12101,7 +12101,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -12143,7 +12143,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -12256,7 +12256,7 @@
               "body": "{\n  \"record\": {\n    \"id\": 123\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – number or phone_number missing",
+              "name": "[Illustrative] 400 – number or phone_number missing",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -12285,8 +12285,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -12295,10 +12295,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Number can't be blank\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign is not transactional or has completed",
+              "name": "[Illustrative] 400 – campaign is no longer running",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -12327,8 +12327,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -12337,7 +12337,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign is no longer running.\"\n}"
             },
             {
               "name": "[Illustrative] 404 – campaign not found",
@@ -12379,7 +12379,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -12421,7 +12421,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -12530,7 +12530,7 @@
               "body": "{\n  \"record\": {\n    \"id\": 123\n  }\n}"
             },
             {
-              "name": "[Illustrative] 4xx – number or phone_number missing",
+              "name": "[Illustrative] 400 – number or phone_number missing",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -12557,8 +12557,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -12567,10 +12567,10 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Number can't be blank\"\n}"
             },
             {
-              "name": "[Illustrative] 4xx – campaign is not transactional or has completed",
+              "name": "[Illustrative] 400 – campaign is no longer running",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -12597,8 +12597,8 @@
                   ]
                 }
               },
-              "status": "Unprocessable Entity",
-              "code": 422,
+              "status": "Bad Request",
+              "code": 400,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -12607,7 +12607,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"Campaign is no longer running.\"\n}"
             },
             {
               "name": "[Illustrative] 404 – campaign not found",
@@ -12647,7 +12647,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -12687,7 +12687,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -13609,7 +13609,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not-found\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -13641,7 +13641,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -13881,7 +13881,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not_authorized\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -13909,7 +13909,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [
@@ -14041,7 +14041,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"not_authorized\"\n}"
             },
             {
               "name": "[Illustrative] 401 – missing or invalid API key",
@@ -14074,7 +14074,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"error\": \"Illustrative placeholder. The API Access Guide does not document error response bodies; capture a real one with Postman's \\\"Save as example\\\".\"\n}"
+              "body": "{\n  \"error\": \"missing or invalid API key\"\n}"
             }
           ],
           "event": [

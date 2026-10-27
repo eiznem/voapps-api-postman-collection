@@ -2,7 +2,8 @@
 // FALLBACK for replacing the shared VoApps Postman collection when Postman's Import does not offer "Replace".
 // It keeps the collection id (so the shared link and its access key keep working).
 //
-// Needs YOUR Postman API key in the POSTMAN_API_KEY environment variable. The key is never written to disk or printed.
+// Needs YOUR Postman API key: set POSTMAN_API_KEY, or save it once in a gitignored
+// .postman-token file next to this script (so you don't re-enter it each time). The key is never printed.
 // Create one in Postman: Settings > API keys > Generate API Key. Then, in a terminal:
 //
 //   export POSTMAN_API_KEY=...            # type or paste it yourself
@@ -20,8 +21,13 @@ const BACKUPS = process.env.BACKUP_DIR || path.resolve(__dirname, '..', '_backup
 const go = process.argv.includes('--yes');
 
 const die = (msg) => { console.error(msg); process.exit(1); };
-const key = process.env.POSTMAN_API_KEY;
-if (!key) die('POSTMAN_API_KEY is not set. Create a key in Postman (Settings > API keys), then run:\n  export POSTMAN_API_KEY=<your key>\n  node push_to_postman.cjs');
+// Key from POSTMAN_API_KEY, or a gitignored .postman-token file next to this script.
+let key = process.env.POSTMAN_API_KEY;
+if (!key) {
+  const tokenFile = path.resolve(__dirname, '.postman-token');
+  try { if (fs.existsSync(tokenFile)) key = fs.readFileSync(tokenFile, 'utf8').trim(); } catch {}
+}
+if (!key) die('No Postman API key. Create one in Postman (Settings > API keys), then either:\n  export POSTMAN_API_KEY=<your key>\n  - or save it once (gitignored, persists):\n  echo "<your key>" > postman-collection-builder/.postman-token\n  node push_to_postman.cjs');
 
 const collection = JSON.parse(fs.readFileSync(FILE, 'utf8'));
 if (!collection.info || !collection.info._postman_id || !Array.isArray(collection.item)) die('Not a Postman collection: ' + FILE);
