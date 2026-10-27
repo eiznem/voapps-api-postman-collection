@@ -144,7 +144,7 @@ const text = (key, value, description, disabled) => { const f = { key, value, ty
 const q = (key, value, description, disabled) => { const f = { key, value }; if (description) f.description = description; if (disabled) f.disabled = true; return f; };
 
 const ok200 = (name, body) => ({ name, code: 200, body });
-const bad = (name, code, msg) => ({ name: ILL + name, code, body: errBody(code, msg) });
+const bad = (name, code, msg, doc) => ({ name: (doc ? '' : ILL) + name, code, body: errBody(code, msg) });
 const unauthorized = () => bad('401 – missing or invalid API key', 401);
 const notFound = what => bad('404 – ' + what + ' not found', 404);
 
@@ -330,7 +330,7 @@ const POST_CREATE_CALLER = req({
   test: join(S.HEAD_2XX, S.HELPERS, S.SAVE, 'if (ok) {', "    pm.test('\"caller_number\" is an object', () => pm.expect(body.caller_number).to.be.an('object'));", '    const items = [body.caller_number];', callerBlock,
     "    pm.test('Name echoes the name that was sent', () => pm.expect(body.caller_number.name).to.eql(pm.variables.get('new_caller_number_name')));",
     "    save('caller_number_id', body.caller_number.id);", "    if (isBlank('voapps_caller_number')) { save('voapps_caller_number', body.caller_number.number); }", '}'),
-  examples: [ok200('200 – caller number created (guide example)', guideEx('create-a-caller-number')), bad('400 – verified_by_user terms not accepted', 400, 'Verified by user Terms must be accepted'), bad('400 – number missing or invalid', 400, 'Number must be a valid US number'), unauthorized()],
+  examples: [ok200('200 – caller number created (guide example)', guideEx('create-a-caller-number')), bad('400 – verified_by_user terms not accepted', 400, 'Verified by user Terms must be accepted', true), bad('400 – number missing or invalid', 400, 'Number must be a valid US number', true), unauthorized()],
 });
 const GET_CALLER_INFO = req({
   name: 'GET | Caller Number Information', method: 'GET', path: ['accounts', '{{account_id}}', 'caller_numbers', '{{caller_number_id}}'], slug: 'caller-number-information',
@@ -409,7 +409,7 @@ const campaignForm = o => {
   f.push(text('pace', '{{campaign_pace}}', pm(crp, 'pace')));
   return f;
 };
-const campaignCreateExamples = [ok200('200 – campaign created (guide example)', guideEx('create-a-campaign')), bad('400 – name already used in this account', 400, 'Name must be unique for this account'), bad('400 – message_id not owned by this account', 400, 'Message must be a valid message for this account'), bad('400 – caller_number missing or invalid', 400, 'Caller number must be a valid caller number for this account'), bad('400 – campaign_import missing (non-transactional campaign)', 400, 'Campaign import file must include a number field, either number or phone_number'), notFound('account'), unauthorized()];
+const campaignCreateExamples = [ok200('200 – campaign created (guide example)', guideEx('create-a-campaign')), bad('400 – name already used in this account', 400, 'Name must be unique for this account', true), bad('400 – message_id not owned by this account', 400, 'Message must be a valid message for this account', true), bad('400 – caller_number missing or invalid', 400, 'Caller number must be a valid caller number for this account', true), bad('400 – campaign_import missing (non-transactional campaign)', 400, 'Campaign import file must include a number field, either number or phone_number', true), notFound('account'), unauthorized()];
 const campaignCreateNotes = ['Safe by default: **confirm** is `{{confirm_campaign}}` (`false`), which the guide describes as "test campaign creation without delivery".', 'Name is `postman-test-campaign-<timestamp>`, because campaign names must be unique per account.', 'Saves **campaign_id**.', 'Tests: 2xx, JSON, `campaign` has id/name/uri/target_date, name echoes what was sent, uri points into this account\'s campaigns.'];
 const campaignSee = [['Pacing Calculator', 'user/creating-a-campaign-pace-setting'], ['The 10:00Z Start Rule', 'integration/the-10-00z-start-rule'], ['CSV File Format Requirements', 'user/csv-file-format-requirements']];
 const mkCreateCampaign = (name, summary, o, targetDesc) => req({
@@ -474,7 +474,7 @@ const recordCreateTest = join(S.HEAD_2XX, S.HELPERS, S.SAVE, 'if (ok) {',
   "    pm.test('\"record\" is an object with an id', () => { pm.expect(body.record).to.be.an('object'); need(body.record, ['id'], 'record'); });",
   "    pm.test('record.id is a positive number', () => pm.expect(Number(body.record.id)).to.be.above(0));",
   "    save('record_id', body.record.id);", '}');
-const recordCreateExamples = [ok200('200 – record created (guide example)', guideEx('create-a-record')), bad('400 – number or phone_number missing', 400, "Number can't be blank"), bad('400 – campaign is no longer running', 400, 'Campaign is no longer running.'), notFound('campaign'), unauthorized()];
+const recordCreateExamples = [ok200('200 – record created (guide example)', guideEx('create-a-record')), bad('400 – number or phone_number missing', 400, "Number can't be blank"), bad('400 – campaign is no longer running', 400, 'Campaign is no longer running.', true), notFound('campaign'), unauthorized()];
 const recordSee = [['Webhook (Postback URL)', 'api/webhook-postback-url'], ['The 10:00Z Start Rule', 'integration/the-10-00z-start-rule'], ['Results Timestamps', 'api/results-timestamps']];
 const mkRecord = (name, summary, fields, o) => req({
   name, method: 'POST', path: o && o.convenience ? ['accounts', '{{account_id}}', 'records'] : ['accounts', '{{account_id}}', 'campaigns', '{{campaign_id}}', 'records'], slug: 'create-a-record',
@@ -768,7 +768,7 @@ const COLLECTION_DESC = [
   '## Variables', varTable,
   'Computed on every send (do not edit): ' + COMPUTED.map(c => '`' + c[0] + '`').join(', ') + '.',
   '## Saved examples',
-  'Each request carries saved examples. **Success examples come from the guide\'s own samples** (and every documented result code on "GET | Record Information"). **Examples starting with "[Illustrative]" are placeholders:** the guide does not document error response bodies or error status codes beyond standard HTTP, so those bodies are marked as stand-ins. Use Postman\'s "Save as example" to replace them with real responses.',
+  'Each request carries saved examples. **Success examples come from the guide\'s own samples** (and every documented result code on "GET | Record Information"). **Error examples use the HTTP status codes the KB documents** (its *Errors & Status Codes* page): `400` validation with an `{"error":"..."}` body, plus `401` / `403` (`not_authorized`) / `404` (`not-found`) / `500`. Where the KB documents the exact message (e.g. "Name must be unique for this account") the example uses it; the few remaining paraphrases stay marked **"[Illustrative]"**. Use Postman\'s "Save as example" to replace them with real responses.',
   '## Webhooks and results',
   'When a record includes `voapps_postback_url`, VoApps sends an HTTP POST with the delivery result (' + kbp('api/webhook-postback-url', 'Webhook (Postback URL)') + ').',
   '> **Retry behavior:** ' + retry,
