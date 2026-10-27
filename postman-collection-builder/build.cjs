@@ -53,6 +53,11 @@ const VARS = [
   ['verified_by_user', 'false', 'switch', 'SAFETY SWITCH. Caller Number Certification. Set to true only if you can truthfully give the certification quoted on "POST | Create a Caller Number".'],
   ['confirm_cancel', 'false', 'switch', 'SAFETY SWITCH. Canceling is final (the guide documents no way to undo it). Set to true to allow the Cancel requests to be sent.'],
   ['confirm_create_account', 'false', 'switch', 'SAFETY SWITCH. The guide documents no way to remove an account through the API. Set to true to allow "POST | Create an Account" to be sent.'],
+  ['postback_signing_secret', '', 'secret', 'Your account postback signing secret (set in the Postback settings). Used to verify the X-VoApps-Signature HMAC on inbound postbacks. Leave blank in a shared collection.'],
+  ['sample_postback_destination', 'https://your-endpoint.example.com/voapps/postback', 'user', 'Reference only (Postback Signature folder): the destination URL the sample signature is computed over.'],
+  ['sample_postback_body', '{"record":{"id":1050502871,"number":"+15555551010","original_fields":{"phone_number":"5555551010"},"delivery_status":"Successful delivery","delivery_status_code":200,"campaign_name":"11 Day Payment Reminder","voapps_timestamp":"2026-10-26 15:38:38 UTC"}}', 'user', 'Reference only (Postback Signature folder): the sample postback JSON the signature is computed over.'],
+  ['sample_postback_timestamp', '', 'user', 'Reference only (Postback Signature folder): unix-seconds timestamp set by the request pre-request script.'],
+  ['computed_postback_signature', '', 'user', 'Reference only (Postback Signature folder): the X-VoApps-Signature recomputed by the request scripts.'],
 ];
 const COMPUTED = [
   ['run_id', 'Milliseconds timestamp that makes test-data names unique.'],
@@ -664,6 +669,54 @@ const SMOKE = folder('Smoke Tests (run in order)',
     folder('E. Error handling (20-31, expect 4xx)', 'Every request here is **supposed to be rejected** with a 4xx. A passing test means VoApps refused the request. ' + kbp('api', 'API Access Guide'), E),
   ]);
 
+// ================================================================== POSTBACK SIGNATURE (verify inbound postbacks)
+const PRE_VERIFY = R`// HOW VOAPPS SIGNS A POSTBACK (this reference request simulates it)
+// signing string = timestamp + "." + destination + "." + rawBody   (joined by literal dots)
+// header value   = "v1=" + HMAC-SHA256(signingString, <your postback signing secret>)  in hex
+const secret = pm.collectionVariables.get('postback_signing_secret') || 'replace-with-your-account-signing-secret';
+const ts   = String(Math.floor(Date.now() / 1000));
+const dest = pm.collectionVariables.get('sample_postback_destination') || 'https://your-endpoint.example.com/voapps/postback';
+const body = pm.collectionVariables.get('sample_postback_body') || '{}';
+const sig  = 'v1=' + CryptoJS.HmacSHA256(ts + '.' + dest + '.' + body, secret).toString(CryptoJS.enc.Hex);
+pm.collectionVariables.set('sample_postback_timestamp', ts);
+pm.collectionVariables.set('sample_postback_destination', dest);
+pm.collectionVariables.set('computed_postback_signature', sig);
+console.log('X-VoApps-Timestamp  :', ts);
+console.log('X-VoApps-Destination:', dest);
+console.log('X-VoApps-Signature  :', sig);`;
+const TEST_VERIFY = R`// HOW YOUR ENDPOINT VERIFIES A RECEIVED POSTBACK
+// Recompute from the received X-VoApps-Timestamp / -Destination headers and the RAW body,
+// then compare to the X-VoApps-Signature header. In production use a constant-time compare,
+// and optionally reject timestamps older than a few minutes (replay protection).
+const secret   = pm.collectionVariables.get('postback_signing_secret') || 'replace-with-your-account-signing-secret';
+const ts       = pm.collectionVariables.get('sample_postback_timestamp');
+const dest     = pm.collectionVariables.get('sample_postback_destination');
+const rawBody  = pm.collectionVariables.get('sample_postback_body');
+const received = pm.collectionVariables.get('computed_postback_signature'); // production: the 'X-VoApps-Signature' request header
+const expected = 'v1=' + CryptoJS.HmacSHA256(ts + '.' + dest + '.' + rawBody, secret).toString(CryptoJS.enc.Hex);
+pm.test('Recomputed HMAC-SHA256 matches the X-VoApps-Signature header', () => pm.expect(expected).to.eql(received));
+pm.test('Signature uses the v1=<hex> scheme', () => pm.expect(expected).to.match(/^v1=[0-9a-f]{64}$/));`;
+const POSTBACK_VERIFY_ITEM = {
+  name: 'Verify a Postback Signature (reference)',
+  request: {
+    method: 'POST',
+    header: [
+      { key: 'Content-Type', value: 'application/json' },
+      { key: 'X-VoApps-Timestamp', value: '{{sample_postback_timestamp}}' },
+      { key: 'X-VoApps-Destination', value: '{{sample_postback_destination}}' },
+      { key: 'X-VoApps-Signature', value: '{{computed_postback_signature}}' },
+    ],
+    url: { raw: 'https://your-endpoint.example.com/voapps/postback', protocol: 'https', host: ['your-endpoint', 'example', 'com'], path: ['voapps', 'postback'] },
+    body: { mode: 'raw', raw: '{{sample_postback_body}}', options: { raw: { language: 'json' } } },
+    description: 'Reference only — you do **not** send this to VoApps. VoApps POSTs each delivery result to your `voapps_postback_url` with `X-VoApps-Timestamp`, `X-VoApps-Destination` and `X-VoApps-Signature` (`v1=` + HMAC-SHA256 over `timestamp.destination.raw_body`, keyed with your account **postback signing secret**). The **pre-request script** shows how VoApps signs; the **test script** shows how your endpoint verifies: recompute from the received headers and raw body, then compare. Set `postback_signing_secret` to run it with your own secret. ' + kbp('api/webhook-postback-url', 'Webhook (Postback URL)'),
+    auth: { type: 'noauth' },
+  },
+  response: [],
+  event: [ev('prerequest', PRE_VERIFY), ev('test', TEST_VERIFY)],
+  _meta: { slug: 'verify-postback-signature', expect: '2xx' },
+};
+const POSTBACK_FOLDER = folder('Postback Signature (verify)', 'Verify the HMAC signature on inbound DirectDrop Voicemail postbacks before trusting them. ' + kbp('api/webhook-postback-url', 'Webhook (Postback URL)'), [POSTBACK_VERIFY_ITEM]);
+
 // ================================================================== REFERENCE FOLDERS
 const REF = [
   folder('Accounts', 'List and create accounts. ' + kbp('api/accounts', 'Guide: Accounts'), [GET_LIST_ACCOUNTS, GET_LIST_ACCOUNTS_HIDDEN, GET_LIST_ACCOUNTS_ALL, POST_CREATE_ACCOUNT]),
@@ -675,6 +728,7 @@ const REF = [
     GET_CAMPAIGN_INFO, PUT_PAUSE, PUT_UNPAUSE, PUT_PACE, PUT_CANCEL]),
   folder('Transactional Records', 'Add numbers one at a time and read their results. ' + kbp('api/transactional-records', 'Guide: Transactional Records') + ' · ' + kbp('api/webhook-postback-url', 'Webhook (Postback URL)'), [
     JSON_POST_CREATE_RECORD, JSON_POST_CREATE_RECORD_PHONE_KEY, JSON_POST_CREATE_RECORD_OVERRIDES, JSON_POST_CREATE_RECORD_TARGET_Z, JSON_POST_CREATE_RECORD_TARGET_OFFSET, JSON_POST_CREATE_RECORD_TARGET_LABEL, JSON_POST_CREATE_RECORD_CONVENIENCE, GET_RECORD_INFO]),
+  POSTBACK_FOLDER,
   folder('Partner API', '**Partners only.** Uses `partner_api_key`, not your account API key. ' + kbp('api/partner-api', 'Guide: Partner API'), [GET_PARTNER_USERS, GET_PARTNER_USAGE], { auth: PARTNER_AUTH }),
   folder('Not in the guide', 'Requests kept from the previous collection that the API Access Guide does **not** document. Treat them as unsupported until VoApps confirms. They are not part of the Smoke Tests.', [GET_RECORD_INFO_NO_CAMPAIGN, GET_RECORD_INFO_PARTNER]),
 ];
