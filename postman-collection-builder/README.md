@@ -49,5 +49,3 @@ node newman/run_newman.cjs
 - **Never put real keys in these files.** `api_key` and `partner_api_key` stay blank; `validate.cjs` fails if a key-like string or the private Postman URL appears.
 - **Saved error examples are illustrative.** The guide documents no error bodies, so they are labelled `[Illustrative]`. The mock API is also built from the guide plus a few marked `ASSUMPTION`s (error codes and bodies, unconfirmed campaigns cannot be paused); it checks the collection's mechanics, not the real API's behavior.
 - **Order matters in Smoke Tests only.** The reference folders (Accounts, Messages, ...) hold individual requests to send one at a time.
-- **`kb-content.js` is not part of this repo.** Put the KB project's copy one folder above `postman-collection-builder/`, or set `KB_CONTENT=/path/to/kb-content.js`.
-- Editing `kb-content.js` is a separate job: follow the KB edit conventions (backup first, JSON-aware edits, `node --check`).
